@@ -1,4 +1,6 @@
 import { FaCode } from "react-icons/fa6";
+import { FiFolder } from "react-icons/fi";
+import { MdChevronRight } from "react-icons/md";
 
 export default function Projects() {
     const projects = [
@@ -8,11 +10,21 @@ export default function Projects() {
     ];
 
     return (
-        <aside className="mb-5">
+        <main className="flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl w-1/2 ">
+            <div className="flex justify-between items-center">
+                <div className="flex items-center gap-1">
+                    <FiFolder />
+                    <p className="text-lg">Projects</p>
+                </div>
+                <div className="flex gap-1 items-center">
+                    <p className="text-xs font-extralight">View More</p>
+                    <MdChevronRight />
+                </div>
+            </div>
             <ul>
                 {projects.map(project => (
                     <li
-                        className="text-sm bg-[#1a1a1a] mb-2 py-2 px-3 rounded flex gap-3 items-center hover:scale-105 transition-all duration-300 cursor-pointer "
+                        className="text-sm bg-[#1a1a1a] mb-2 p-3 rounded flex gap-3 items-center hover:scale-105 transition-all duration-300 cursor-pointer "
                     >
                         <FaCode className="mt-1" />
                         <div>
@@ -24,6 +36,6 @@ export default function Projects() {
                     </li>
                 ))}
             </ul>
-        </aside>
+        </main>
     )
 }

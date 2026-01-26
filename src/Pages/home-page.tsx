@@ -1,14 +1,14 @@
 // import Socials from "../components/socials"
 // import { IoIosNavigate } from "react-icons/io";
-import { FiFolder } from "react-icons/fi";
-import { MdChevronRight } from "react-icons/md";
 import { FiShare2 } from "react-icons/fi";
+import Sparkle from "../components/sparkle-icon";
 
 import Projects from "../components/projects";
 import Socials from "../components/socials";
 import About from "../components/about";
 import TechStack from "../components/tech-stack";
 import Experience from "../components/experince";
+import Traits from "../components/traits";
 
 export default function Home() {
     return (
@@ -40,19 +40,15 @@ export default function Home() {
                         
                         <div className="border border-gray-800 w-full my-5"></div>
 
-                        {/* Projects */}
-                        <div className="flex flex-col gap-4">
+                        {/* Traits */}
+                        <div className="flex flex-col gap-4 mb-5">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-1">
-                                    <FiFolder />
-                                    <p className="text-lg">Projects</p>
-                                </div>
-                                <div className="flex gap-1 items-center">
-                                    <p className="text-xs font-extralight">View More</p>
-                                    <MdChevronRight />
+                                    <Sparkle />
+                                    <p className="text-lg">Traits</p>
                                 </div>
                             </div>
-                            <Projects />
+                            <Traits />
                         </div>
 
                         {/* Socials */}
@@ -70,7 +66,10 @@ export default function Home() {
                 <section className="border w-3/4 h-auto right-container">
                     <About />
                     <TechStack />
-                    <Experience />
+                    <div className="flex gap-3">
+                        <Experience />
+                        <Projects />
+                    </div>
                 </section>
             </div>
         </main>
