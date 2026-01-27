@@ -7,7 +7,7 @@ type PageProps = {
 
 export default function Landing({ name }:PageProps) {
     return (
-        <main className="min-h-screen w-full bg-black relative text-white">
+        <main className="min-h-screen w-screen bg-black relative text-white">
             {/* Vercel Grid */}
                 <div
                 className="absolute inset-0 opacity-30"
@@ -20,13 +20,13 @@ export default function Landing({ name }:PageProps) {
                 }}
             />
             {/* Your Content/Components */}
-            <div className="px-96 ">
+            <div className="lg:px-96 ">
                 <Header />
-                <main className="flex justify-center items-center h-screen ">
-                    <div className="flex flex-col gap-10 text-center mt-20 items-center">
-                        <div className="flex flex-col gap-10">
-                            <h1 className="text-8xl">Hello I'm <span className="text-red-500 border-b-2 border-red-500">{name}</span></h1>
-                            <p className="text-lg text-gray-500">Information Technology • Web Developer</p>
+                <main className="flex justify-center items-center h-screen">
+                    <div className="flex flex-col gap-5 md:gap-8 lg:gap-10 text-center mt-20 items-center">
+                        <div className="flex flex-col gap-3 md:gap-8 lg:gap-10">
+                            <h1 className="text-3xl md:text-5xl lg:text-8xl">Hello I'm <span className="text-red-500 border-b-2 border-red-500">{name}</span></h1>
+                            <p className="text-sm md:text-lg text-gray-500">Information Technology • Web Developer</p>
                         </div>
                         <ActionBtn />
                     </div>
