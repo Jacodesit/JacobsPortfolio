@@ -86,7 +86,7 @@ export default function Home() {
                 <section className="border w-full lg:w-3/4 h-auto right-container overflow-y-auto lg:ml-98">
                     <About />
                     <TechStack />
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-3 lg:flex-nowrap">
                         <Experience />
                         <Projects />
                     </div>
