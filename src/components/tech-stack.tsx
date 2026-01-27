@@ -18,7 +18,7 @@ export default function TechStack() {
             <div className="flex flex-col gap-5">
                 <div>
                     <h1 className="mb-2">Frontend</h1>
-                    <ul className="flex gap-1 font-extralight">
+                    <ul className="flex gap-1 font-extralight flex-wrap">
                         {frontends.map(frontend => (
                             <li
                                 key={frontend}

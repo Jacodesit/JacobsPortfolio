@@ -9,6 +9,8 @@ import About from "../components/about";
 import TechStack from "../components/tech-stack";
 import Experience from "../components/experince";
 import Traits from "../components/traits";
+import Gallery from "../components/gallery";
+import ActionBtn from "../components/action-btn";
 
 export default function Home() {
     return (
@@ -27,21 +29,39 @@ export default function Home() {
             {/* Your Content/Components */}
             <div className="flex space-x-3 py-8 px-30">
                 {/* left */}
-                <section className="border h-auto w-1/4 p-5 left-container rounded-md">
-                    <div className="rounded-full flex-col gap-5">
+                <section className="border h-auto w-1/4 p-5 left-container rounded-md fixed ">
+                    <div className="rounded-full flex flex-col gap-5">
                         <div className="pt-5 flex flex-col justify-center items-center">
                             <img 
                                 src="/Profile/me.webp" 
                                 alt="Me" 
                                 className="rounded-full h-30 mb-5"
                             />
-                            <p className="font-semibold text-xl">Paul Jacob Tocmo</p>
+                            <div className="flex items-center gap-1">
+                                <p className="font-semibold text-xl mb-1">Paul Jacob Tocmo</p>
+                                <img 
+                                    src='/Flag/ph.png'
+                                    alt="PH Flag" 
+                                />
+                            </div>
+                            <ActionBtn />
                         </div>
                         
-                        <div className="border border-gray-800 w-full my-5"></div>
+                        <div className="border border-gray-800 w-full"></div>
+
+                        {/* Location */}
+                        {/* <div className="flex flex-col gap-4">
+                            <div className="flex justify-between items-center">
+                                <div className="flex items-center gap-1">
+                                    <Sparkle />
+                                    <p className="text-lg">Location</p>
+                                </div>
+                            </div>
+                            <Traits />
+                        </div> */}
 
                         {/* Traits */}
-                        <div className="flex flex-col gap-4 mb-5">
+                        <div className="flex flex-col gap-4">
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-1">
                                     <Sparkle />
@@ -63,13 +83,14 @@ export default function Home() {
                 </section>
 
                 {/* Right */}
-                <section className="border w-3/4 h-auto right-container">
+                <section className="border w-3/4 h-auto right-container overflow-y-auto ml-98">
                     <About />
                     <TechStack />
                     <div className="flex gap-3">
                         <Experience />
                         <Projects />
                     </div>
+                    <Gallery />
                 </section>
             </div>
         </main>

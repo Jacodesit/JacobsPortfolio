@@ -16,10 +16,10 @@ export default function Experience() {
                 {dates.map(date => (
                     <li
                         key={date.year}
-                        className="flex justify-between gap-5 items-center bg-[#FFFFFF0F] px-3 py-2 rounded mb-2"
+                        className="flex justify-between gap-5 items-center bg-[#FFFFFF0F] px-3 py-3 rounded mb-2"
                     >
                         <div>
-                            <p className="text-lg">{date.headline}</p>
+                            <p className="text-sm">{date.headline}</p>
                             <p className="text-xs text-gray-500">{date.subtext}</p>
                         </div>
                         <p className="text-xs border px-4 py-1 rounded-xl">{date.year}</p>
