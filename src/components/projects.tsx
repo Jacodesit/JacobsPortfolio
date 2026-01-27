@@ -4,7 +4,7 @@ import { MdChevronRight } from "react-icons/md";
 
 export default function Projects() {
     const projects = [
-        {name: 'CivicWacth', description: 'Cabulijan reporting system'},
+        {name: 'CivicWatch', description: 'Cabulijan reporting system'},
         {name: 'LaraReact_TaskManager', description: 'Simple task management application'},
         {name: 'LaraReact_SimpleBookingSystem', description: 'Simple booking system'}
     ];
