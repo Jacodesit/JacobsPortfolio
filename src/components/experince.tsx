@@ -7,7 +7,7 @@ export default function Experience() {
         {year: '2025', headline: 'OJT Internship', subtext: 'DILG Bohol'}
     ]
     return (
-        <div className="flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl w-1/2">
+        <div className="w-full flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl lg:w-1/2">
             <div className="flex items-center gap-1">
                 <FiAward />
                 <p className="text-lg">Experience</p>

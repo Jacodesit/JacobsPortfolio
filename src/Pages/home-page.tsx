@@ -27,9 +27,9 @@ export default function Home() {
                 }}
             />
             {/* Your Content/Components */}
-            <div className="flex space-x-3 py-8 px-30">
+            <div className="w-full lg:flex lg:space-x-3 py-8 px-8 lg:px-30">
                 {/* left */}
-                <section className="border h-auto w-1/4 p-5 left-container rounded-md fixed ">
+                <section className="border mb-5 lg:mb-0 h-auto lg:w-1/4 p-5 left-container rounded-md lg:fixed ">
                     <div className="rounded-full flex flex-col gap-5">
                         <div className="pt-5 flex flex-col justify-center items-center">
                             <img 
@@ -83,10 +83,10 @@ export default function Home() {
                 </section>
 
                 {/* Right */}
-                <section className="border w-3/4 h-auto right-container overflow-y-auto ml-98">
+                <section className="border w-full lg:w-3/4 h-auto right-container overflow-y-auto lg:ml-98">
                     <About />
                     <TechStack />
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-3">
                         <Experience />
                         <Projects />
                     </div>
