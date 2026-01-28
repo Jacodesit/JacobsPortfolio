@@ -10,18 +10,17 @@ export default function Socials() {
     ];
 
     return (
-        <aside>
+        <aside className="w-full md:w-auto">
             <ul className="flex flex-col gap-2">
                 {socials.map(social => (
                     <li 
                         key={social.name} 
-                        // className="flex items-center gap-2 bg-[#1a1a1a] p-2 md:p-3 rounded transition-all duration-500 hover:scale-105 hover:cursor-pointer"
                     >
                         <a 
                             href={social.url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center gap-2 bg-[#1a1a1a] p-2 md:p-3 rounded transition-all duration-500 hover:scale-105 hover:cursor-pointer"
+                            className="flex items-center gap-2 bg-[#1a1a1a] p-3 rounded transition-all duration-500 hover:scale-105 hover:cursor-pointer"
 
                         >
                             {social.icon}
