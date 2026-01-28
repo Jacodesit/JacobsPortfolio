@@ -27,9 +27,9 @@ export default function Home() {
                 }}
             />
             {/* Your Content/Components */}
-            <div className="w-full lg:flex lg:space-x-3 py-8 px-8 lg:px-30">
+            <div className="w-full lg:flex lg:space-x-3 p-5 lg:px-30">
                 {/* left */}
-                <section className="border mb-5 lg:mb-0 h-auto lg:w-1/4 p-5 left-container rounded-md lg:fixed ">
+                <section className="border mb-5 lg:mb-0 h-auto lg:w-1/4 px-5 py-5.5 left-container rounded-md lg:fixed ">
                     <div className="rounded-full flex flex-col gap-5">
                         <div className="pt-5 flex flex-col justify-center items-center">
                             <img 

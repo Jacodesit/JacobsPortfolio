@@ -8,15 +8,15 @@ export default function Gallery() {
     const scrollRef = useRef<HTMLDivElement>(null)
 
     const scrollLeft = () => {
-    if (scrollRef.current) {
-        scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
-    }
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+        }
     };
 
     const scrollRight = () => {
-    if (scrollRef.current) {
-        scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
-    }
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+        }
     };
 
     
@@ -67,7 +67,7 @@ export default function Gallery() {
                 </div>
                 <div
                     ref={scrollRef} 
-                    className="flex gap-2 overflow-x-hidden scroll-smooth">
+                    className="flex gap-3 overflow-x-hidden scroll-smooth">
                     {images.map((src, index) => (
                         <img key={index} src={src} alt="gallery" className="h-64 w-48 object-cover shrink-0 rounded" />
                     ))}
