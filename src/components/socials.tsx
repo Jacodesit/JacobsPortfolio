@@ -20,7 +20,7 @@ export default function Socials() {
                             href={social.url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="flex items-center gap-2 bg-[#1a1a1a] p-3 rounded transition-all duration-500 hover:scale-105 hover:cursor-pointer"
+                            className="flex items-center gap-2 bg-[#1a1a1a] p-3 lg:p-4 rounded transition-all duration-500 hover:scale-105 hover:cursor-pointer z-99"
 
                         >
                             {social.icon}
