@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { FaCode } from "react-icons/fa6";
 import { FiFolder } from "react-icons/fi";
 import { MdChevronRight } from "react-icons/md";
@@ -16,10 +18,13 @@ export default function Projects() {
                     <FiFolder />
                     <p className="text-lg">Projects</p>
                 </div>
-                <div className="flex gap-1 items-center">
-                    <p className="text-xs font-extralight">View More</p>
+                <Link
+                    to={'/projects'}
+                    className="flex gap-1 items-center text-xs transition-all duration-300 hover:cursor-pointer hover:text-red-500"
+                >
+                    View More
                     <MdChevronRight />
-                </div>
+                </Link>
             </div>
             <ul>
                 {projects.map(project => (
