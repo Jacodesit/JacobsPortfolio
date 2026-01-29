@@ -3,7 +3,6 @@ import { useRef } from "react";
 import GalleryIcon from "./image-icon"
 import { RxCaretLeft } from "react-icons/rx";
 import { RxCaretRight } from "react-icons/rx";
-import Socials from "./socials";
 
 export default function Gallery() {
     const scrollRef = useRef<HTMLDivElement>(null)
@@ -74,9 +73,6 @@ export default function Gallery() {
                     ))}
                 </div>
             </div>
-            
-
-            <Socials />
         </div>
     )
 }
