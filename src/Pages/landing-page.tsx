@@ -1,5 +1,6 @@
 import Header from "../components/header"
 import ActionBtn from "../components/actions-btn"
+import Socials from "../components/socials"
 
 type PageProps = {
     name: string
@@ -29,6 +30,7 @@ export default function Landing({ name }:PageProps) {
                             <p className="text-sm md:text-lg text-gray-500">Information Technology • Web Developer</p>
                         </div>
                         <ActionBtn />
+                        <Socials />
                     </div>
                 </main>
             </div>
