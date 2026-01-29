@@ -19,7 +19,6 @@ export default function Gallery() {
         }
     };
 
-    
     const images = [
         '/Gallery/img16.webp',
         '/Gallery/img1.jpg',
@@ -65,6 +64,7 @@ export default function Gallery() {
                     </div>
                     
                 </div>
+                
                 <div
                     ref={scrollRef} 
                     className="flex gap-3 overflow-x-hidden scroll-smooth">
