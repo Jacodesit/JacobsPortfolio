@@ -14,7 +14,7 @@ import ActionBtn from "../components/action-btn";
 
 export default function Home() {
     return (
-        <main className="min-h-screen w-full bg-black relative text-white">
+        <main className="min-h-screen w-full bg-black relative text-white z-9999">
             {/* Vercel Grid */}
                 <div
                 className="absolute inset-0 opacity-30"
