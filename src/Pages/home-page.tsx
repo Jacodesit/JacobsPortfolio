@@ -100,7 +100,7 @@ export default function Home() {
             {/* Vercel Grid */}
             <motion.div
                 variants={gridVariants}
-                className="absolute inset-0"
+                className="fixed inset-0 pointer-events-none"
                 style={{
                     backgroundImage: `
                     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
