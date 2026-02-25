@@ -10,7 +10,7 @@ export default function Socials() {
     ];
 
     return (
-        <aside className="">
+        <aside className="z-9999">
             <ul className="flex flex-col gap-2">
                 {socials.map(social => (
                     <li 
