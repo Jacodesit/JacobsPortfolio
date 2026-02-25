@@ -12,7 +12,7 @@ export default function Projects() {
     ];
 
     return (
-        <main className="w-full flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl lg:w-1/2 ">
+        <main className="w-full flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl lg:w-1/2 z-9999">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-1">
                     <FiFolder />
