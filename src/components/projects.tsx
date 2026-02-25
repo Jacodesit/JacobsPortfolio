@@ -33,7 +33,7 @@ export default function Projects() {
                     >
                         <FaCode className="mt-1" />
                         <div>
-                            <p className="font-medium flex truncate w-52">{project.name}</p>
+                            <p className="font-medium flex truncate w-60">{project.name}</p>
                             <p className="text-xs text-gray-400">
                                 {project.description}
                             </p>

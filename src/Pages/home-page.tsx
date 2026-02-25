@@ -1,5 +1,5 @@
-// import Socials from "../components/socials"
-// import { IoIosNavigate } from "react-icons/io";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { FiShare2 } from "react-icons/fi";
 import Sparkle from "../components/sparkle-icon";
 
@@ -12,12 +12,95 @@ import Traits from "../components/traits";
 import Gallery from "../components/gallery";
 import ActionBtn from "../components/action-btn";
 
+// Animation variants
+const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        }
+    }
+};
+
+const leftContainerVariants: Variants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 0.6
+        }
+    }
+};
+
+const rightContainerVariants: Variants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            duration: 0.6,
+            staggerChildren: 0.15,
+            delayChildren: 0.3
+        }
+    }
+};
+
+const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: "spring",
+            stiffness: 100,
+            damping: 12
+        }
+    }
+};
+
+const profileVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            type: "spring",
+            stiffness: 120,
+            damping: 15,
+            delay: 0.1
+        }
+    }
+};
+
+const gridVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 0.3,
+        transition: { duration: 1.5, ease: "easeOut" }
+    }
+};
+
 export default function Home() {
     return (
-        <main className="min-h-screen w-full bg-black relative text-white z-9999">
+        <motion.main 
+            className="min-h-screen w-full bg-black relative text-white z-9999"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+        >
             {/* Vercel Grid */}
-                <div
-                className="absolute inset-0 opacity-30"
+            <motion.div
+                variants={gridVariants}
+                className="absolute inset-0"
                 style={{
                     backgroundImage: `
                     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
@@ -26,42 +109,51 @@ export default function Home() {
                     backgroundSize: "60px 60px",
                 }}
             />
+            
             {/* Your Content/Components */}
             <div className="w-full lg:flex lg:space-x-3 p-5 lg:px-30 z-9999">
                 {/* left */}
-                <section className="border mb-5 lg:mb-0 h-auto lg:w-1/4 px-5 py-5.5 left-container rounded-md lg:fixed ">
+                <motion.section 
+                    className="border mb-5 lg:mb-0 h-auto lg:w-1/4 px-5 py-5.5 left-container rounded-md lg:fixed"
+                    variants={leftContainerVariants}
+                >
                     <div className="rounded-full flex flex-col gap-5">
-                        <div className="pt-5 flex flex-col justify-center items-center">
-                            <img 
+                        <motion.div 
+                            className="pt-5 flex flex-col justify-center items-center"
+                            variants={profileVariants}
+                        >
+                            <motion.img 
                                 src="/Profile/me.webp" 
                                 alt="Me" 
                                 className="rounded-full h-30 mb-5"
+                                whileHover={{ scale: 1.05 }}
+                                transition={{ type: "spring", stiffness: 300 }}
                             />
-                            <div className="flex items-center gap-1">
+                            <motion.div 
+                                className="flex items-center gap-1"
+                                variants={itemVariants}
+                            >
                                 <p className="font-semibold text-xl mb-1">Paul Jacob Tocmo</p>
                                 <img 
                                     src='/Flag/ph.png'
                                     alt="PH Flag" 
                                 />
-                            </div>
-                            <ActionBtn />
-                        </div>
+                            </motion.div>
+                            <motion.div variants={itemVariants}>
+                                <ActionBtn />
+                            </motion.div>
+                        </motion.div>
                         
-                        <div className="border border-gray-800 w-full"></div>
-
-                        {/* Location */}
-                        {/* <div className="flex flex-col gap-4">
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center gap-1">
-                                    <Sparkle />
-                                    <p className="text-lg">Location</p>
-                                </div>
-                            </div>
-                            <Traits />
-                        </div> */}
+                        <motion.div 
+                            className="border border-gray-800 w-full"
+                            variants={itemVariants}
+                        />
 
                         {/* Traits */}
-                        <div className="flex flex-col gap-4">
+                        <motion.div 
+                            className="flex flex-col gap-4"
+                            variants={itemVariants}
+                        >
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-1">
                                     <Sparkle />
@@ -69,30 +161,48 @@ export default function Home() {
                                 </div>
                             </div>
                             <Traits />
-                        </div>
+                        </motion.div>
 
                         {/* Socials */}
-                        <div className="flex flex-col gap-4">
+                        <motion.div 
+                            className="flex flex-col gap-4"
+                            variants={itemVariants}
+                        >
                             <div className="flex items-center gap-1">
                                 <FiShare2 />
                                 <p className="text-lg">Socials</p>
                             </div>
                             <Socials />
-                        </div>
+                        </motion.div>
                     </div>
-                </section>
+                </motion.section>
 
                 {/* Right */}
-                <section className="border w-full lg:w-3/4 h-auto right-container overflow-y-auto lg:ml-98">
-                    <About />
-                    <TechStack />
-                    <div className="flex flex-wrap gap-3 lg:flex-nowrap">
+                <motion.section 
+                    className="border w-full lg:w-3/4 h-auto right-container overflow-hidden lg:ml-98"
+                    variants={rightContainerVariants}
+                >
+                    <motion.div variants={itemVariants}>
+                        <About />
+                    </motion.div>
+                    
+                    <motion.div variants={itemVariants}>
+                        <TechStack />
+                    </motion.div>
+                    
+                    <motion.div 
+                        className="flex flex-wrap gap-3 lg:flex-nowrap"
+                        variants={itemVariants}
+                    >
                         <Experience />
                         <Projects />
-                    </div>
-                    <Gallery />
-                </section>
+                    </motion.div>
+                    
+                    <motion.div variants={itemVariants}>
+                        <Gallery />
+                    </motion.div>
+                </motion.section>
             </div>
-        </main>
+        </motion.main>
     )
 }

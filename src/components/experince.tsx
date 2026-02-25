@@ -3,7 +3,7 @@ import { FiAward } from "react-icons/fi";
 export default function Experience() {
     const dates = [
         {year: '2022', headline: 'Hello World!', subtext: 'Wrote my first line of code'},
-        {year: '2025', headline: 'Capstone Leader', subtext: 'Group 1'},
+        {year: '2025', headline: 'Capstone Leader', subtext: 'Group 1 - CivicWatch (Online Reporting System)'},
         {year: '2025', headline: 'OJT Internship', subtext: 'DILG Bohol'}
     ]
     return (
