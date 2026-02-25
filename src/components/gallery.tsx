@@ -23,8 +23,6 @@ export default function Gallery() {
         '/Gallery/img16.webp',
         '/Gallery/img1.jpg',
         '/Gallery/img2.jpg',
-        '/Gallery/img3.jpg',
-        '/Gallery/img4.jpg',
         '/Gallery/img5.jpg',
         '/Gallery/img6.jpg',
         '/Gallery/img7.webp',
