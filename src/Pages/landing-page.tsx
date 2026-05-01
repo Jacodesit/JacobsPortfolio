@@ -74,56 +74,74 @@ export default function Landing({ name }: PageProps) {
                     {/* <Header /> */}
                 </motion.div>
                 
-                <main className="flex gap-5 items-center h-screen">
+                <main className="flex gap-10 items-center h-screen px-10">
+                    {/* Image Container: Added overflow-hidden and soft shadow */}
                     <motion.div 
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="w-2/5 rounded-md h-96"
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="w-2/5 rounded-2xl h-96 relative group overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
                     >
                         <img 
                             src="/Gallery/graduation_pic.jpg" 
                             alt="Me" 
-                            className="border-4 border-red-500/20 rounded-md objkect-cover w-full h-full"
+                            /* Fixed typo: object-cover. Added hover zoom. */
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
+                        {/* Modern Overlay: Subtle gradient border */}
+                        <div className="absolute inset-0 rounded-2xl border border-black/5 pointer-events-none" />
+                        
+                        {/* Floating Accent Detail */}
+                        {/* <div className="absolute bottom-4 left-4 bg-white/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow-sm">
+                            <p className="text-[10px] uppercase tracking-widest font-bold text-red-500">Graduation Portait</p>
+                        </div> */}
                     </motion.div>
+
+                    {/* Text Content */}
                     <motion.div 
-                        className="w-3/4 flex flex-col gap-5 md:gap-8 lg:gap-10 "
+                        className="w-3/4 flex flex-col gap-5 md:gap-8 lg:gap-10"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
                     >
                         <div className="flex flex-col">
                             <motion.p
-                                className="text-xs text-gray-500 whitespace-nowrap mb-5"
+                                className="text-xs text-red-500/60 uppercase tracking-[0.3em]  mb-4"
                                 variants={itemVariants}
                             >
-                                Passionate about frontend development                            
+                                Passionate about frontend development                             
                             </motion.p>
 
                             <motion.h1
-                                className="text-3xl md:text-5xl lg:text-7xl whitespace-nowrap mb-1"
+                                className="text-4xl md:text-6xl lg:text-8xl font-medium tracking-tight text-white mb-1"
                                 variants={nameVariants}
                             >
                                 Hello I'm{" "}
                                 <motion.span
-                                    className="text-red-500 border-b-2 border-red-500 inline-block"
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{ type: "spring", stiffness: 300 }}
+                                    className="text-red-500 relative inline-block cursor-default"
+                                    whileHover={{ scale: 1.02 }}
+                                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                                 >
                                     {name}
+                                    {/* Animated Underline */}
+                                    <motion.span 
+                                        className="absolute bottom-2 left-0 w-full h-1.5 bg-red-500/10 -z-10"
+                                        initial={{ width: 0 }}
+                                        animate={{ width: "100%" }}
+                                        transition={{ delay: 1, duration: 0.8 }}
+                                    />
                                 </motion.span>
                             </motion.h1>
                             
                             <motion.p 
-                                className="text-sm md:text-lg text-gray-500 whitespace-nowrap"
+                                className="text-sm text-slate-400 font-light tracking-wide"
                                 variants={itemVariants}
                             >
-                                Frontend Developer | UI-Focused
+                                Frontend Developer <span className="mx-2 text-slate-200">|</span> UI-Focused
                             </motion.p>
                         </div>
                         
-                        <motion.div variants={itemVariants}>
+                        <motion.div variants={itemVariants} className="pt-2">
                             <ActionBtn />
                         </motion.div>
                     </motion.div>
