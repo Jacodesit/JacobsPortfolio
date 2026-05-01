@@ -1,13 +1,12 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import Header from "../components/header"
+// import Header from "../components/header"
 import ActionBtn from "../components/actions-btn"
 
 type PageProps = {
     name: string
 }
 
-// Fix: Explicitly type as Variants or use 'as const'
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,7 +24,7 @@ const itemVariants: Variants = {
         opacity: 1,
         y: 0,
         transition: {
-            type: "spring", // Now properly typed
+            type: "spring", 
             stiffness: 100,
             damping: 12
         }
@@ -66,39 +65,61 @@ export default function Landing({ name }: PageProps) {
             />
             
             {/* Your Content/Components */}
-            <div className="lg:px-96 relative z-10">
+            <div className="lg:px-72 flex p- relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                    <Header />
+                    {/* <Header /> */}
                 </motion.div>
                 
-                <main className="flex justify-center items-center h-screen">
+                <main className="flex gap-5 items-center h-screen">
                     <motion.div 
-                        className="flex flex-col gap-5 md:gap-8 lg:gap-10 text-center items-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="w-2/5 rounded-md h-96"
+                    >
+                        <img 
+                            src="/Gallery/graduation_pic.jpg" 
+                            alt="Me" 
+                            className="border-4 border-red-500/20 rounded-md objkect-cover w-full h-full"
+                        />
+                    </motion.div>
+                    <motion.div 
+                        className="w-3/4 flex flex-col gap-5 md:gap-8 lg:gap-10 "
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
                     >
-                        <div className="flex flex-col gap-3 md:gap-8 lg:gap-10">
-                            <motion.h1 
-                                className="text-3xl md:text-5xl lg:text-8xl"
+                        <div className="flex flex-col">
+                            <motion.p
+                                className="text-xs text-gray-500 whitespace-nowrap mb-5"
+                                variants={itemVariants}
+                            >
+                                Passionate about frontend development                            
+                            </motion.p>
+
+                            <motion.h1
+                                className="text-3xl md:text-5xl lg:text-7xl whitespace-nowrap mb-1"
                                 variants={nameVariants}
                             >
-                                Hello I'm <motion.span 
+                                Hello I'm{" "}
+                                <motion.span
                                     className="text-red-500 border-b-2 border-red-500 inline-block"
                                     whileHover={{ scale: 1.05 }}
                                     transition={{ type: "spring", stiffness: 300 }}
-                                >{name}</motion.span>
+                                >
+                                    {name}
+                                </motion.span>
                             </motion.h1>
                             
                             <motion.p 
-                                className="text-sm md:text-lg text-gray-500"
+                                className="text-sm md:text-lg text-gray-500 whitespace-nowrap"
                                 variants={itemVariants}
                             >
-                                Information Technology • Web Developer
+                                Frontend Developer | UI-Focused
                             </motion.p>
                         </div>
                         
