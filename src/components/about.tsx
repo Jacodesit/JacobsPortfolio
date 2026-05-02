@@ -2,7 +2,7 @@ import { FiBriefcase } from "react-icons/fi";
 
 export default function About() {
     return (
-        <div className="flex flex-col gap-5 bg-white/3 border border-white/5 p-6 rounded-2xl mb-4 shadow-sm">
+        <div className="flex flex-col gap-5 bg-white/3 border border-white/5 p-6 rounded-2xl mb-4 shadow-sm z-9999">
             <div className="flex items-center gap-2 text-gray-400">
                 <FiBriefcase size={18} />
                 <h2 className="text-xs font-bold uppercase tracking-[0.2em]">About Me</h2>
