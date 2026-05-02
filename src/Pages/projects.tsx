@@ -4,9 +4,17 @@ import { FaFolderOpen, FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ProjectsModal from "../components/modal/project-modal";
 
+interface Project {
+    name: string;
+    description: string;
+    screenshots: string[];
+    link: string;
+    technologies: string[];
+}
+
 export default function Projects() {
     const [openProject, setOpenProject] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
     const projects = [
         {
@@ -32,7 +40,7 @@ export default function Projects() {
         },
     ];
 
-    const handleProjectClick = (project) => {
+    const handleProjectClick = (project: Project) => {
         setSelectedProject(project);
         setOpenProject(true);
     };

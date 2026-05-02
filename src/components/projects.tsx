@@ -12,7 +12,7 @@ export default function Projects() {
     ];
 
     return (
-        <div className="w-full lg:w-1/2 flex flex-col gap-5 bg-white/[0.03] border border-white/5 p-6 rounded-2xl relative overflow-hidden group">
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 bg-white/3 border border-white/5 p-6 rounded-2xl relative overflow-hidden group">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2 text-gray-400">
                     <FiFolder size={18} />

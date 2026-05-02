@@ -76,29 +76,38 @@ export default function ProjectsModal({ openModal, onClose, project }: PageProps
                                 
                                 {/* Left Side: Gallery */}
                                 <div className="lg:col-span-8 space-y-4">
-                                    <div className="relative aspect-video bg-black/40 rounded-xl overflow-hidden border border-white/5 group">
+                                    <div className="relative aspect-video bg-[#0A0A0A] rounded-xl overflow-hidden border border-white/10 group shadow-inner">
+                                        {/* Inner Shadow Overlay for depth */}
+                                        <div className="absolute inset-0 pointer-events-none border border-white/5 rounded-xl z-20" />
+                                        
                                         <AnimatePresence mode="wait">
                                             <motion.img
                                                 key={selectedImage}
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                transition={{ duration: 0.3 }}
+                                                transition={{ duration: 0.2 }}
                                                 src={project.screenshots[selectedImage]}
-                                                alt="Project Screenshot"
-                                                className="w-full h-full object-cover"
+                                                className="w-full h-full object-contain" // Changed to contain
                                             />
                                         </AnimatePresence>
 
+                                        {/* Refined Navigation Buttons */}
                                         {project.screenshots.length > 1 && (
-                                            <>
-                                                <button onClick={handlePrevImage} className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
-                                                    <FaChevronLeft size={14} />
+                                            <div className="absolute inset-0 flex items-center justify-between px-4 z-30">
+                                                <button 
+                                                    onClick={handlePrevImage} 
+                                                    className="p-2.5 bg-black/20 hover:bg-black/60 text-white rounded-full backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0"
+                                                >
+                                                    <FaChevronLeft size={12} />
                                                 </button>
-                                                <button onClick={handleNextImage} className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/40 hover:bg-black/60 text-white rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100">
-                                                    <FaChevronRight size={14} />
+                                                <button 
+                                                    onClick={handleNextImage} 
+                                                    className="p-2.5 bg-black/20 hover:bg-black/60 text-white rounded-full backdrop-blur-md border border-white/10 transition-all opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0"
+                                                >
+                                                    <FaChevronRight size={12} />
                                                 </button>
-                                            </>
+                                            </div>
                                         )}
                                     </div>
 

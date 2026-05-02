@@ -162,7 +162,7 @@ export default function Home() {
                         {/* Traits */}
                         <motion.div className="flex flex-col gap-4" variants={itemVariants}>
                             <div className="flex items-center gap-2 text-gray-400">
-                                <Sparkle size={16} />
+                                <Sparkle />
                                 <p className="text-xs font-bold uppercase tracking-[0.2em]">Personal Traits</p>
                             </div>
                             <Traits />

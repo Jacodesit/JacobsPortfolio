@@ -16,7 +16,7 @@ export default function Socials() {
                             href={social.url} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="group flex items-center justify-between bg-white/[0.02] border border-white/5 p-4 rounded-xl transition-all duration-300 hover:bg-white/[0.05] hover:border-white/10 hover:-translate-y-0.5"
+                            className="group flex items-center justify-between bg-white/2 border border-white/5 p-4 rounded-xl transition-all duration-300 hover:bg-white/5 hover:border-white/10 hover:-translate-y-0.5"
                         >
                             <div className="flex items-center gap-3">
                                 <span className="text-gray-400 group-hover:text-white transition-colors duration-300">

@@ -7,7 +7,7 @@ export default function TechStack() {
     ];
 
     return (
-        <div className="flex flex-col gap-6 bg-white/[0.03] border border-white/5 p-6 rounded-2xl mb-4">
+        <div className="flex flex-col gap-6 bg-white/3 border border-white/5 p-6 rounded-2xl mb-4">
             <div className="flex items-center gap-2 text-gray-400">
                 <FiLayers size={18} />
                 <h2 className="text-xs font-bold uppercase tracking-[0.2em]">Tech Stack</h2>
@@ -19,7 +19,7 @@ export default function TechStack() {
                         <h3 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">{cat.label}</h3>
                         <ul className="flex gap-2 flex-wrap">
                             {cat.skills.map(skill => (
-                                <li key={skill} className="px-3 py-1 rounded-full text-[11px] bg-white/[0.05] border border-white/10 text-gray-300 hover:text-white transition-colors">
+                                <li key={skill} className="px-3 py-1 rounded-full text-[11px] bg-white/5 border border-white/10 text-gray-300 hover:text-white transition-colors">
                                     {skill}
                                 </li>
                             ))}
