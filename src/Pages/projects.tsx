@@ -82,7 +82,7 @@ export default function Projects() {
                             onClick={() => handleProjectClick(project)}
                             className="group relative cursor-pointer"
                         >
-                            <div className="h-full bg-white/3 border border-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-[#FFFFFF0A] hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/5">
+                            <div className="h-full bg-white/2 border border-white/5 rounded-2xl p-6 transition-all duration-300 hover:bg-[#FFFFFF0A] hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/5">
                                 {/* Card Icon & Link */}
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:text-blue-400 transition-colors">
