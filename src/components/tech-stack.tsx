@@ -1,48 +1,31 @@
 import { FiLayers } from "react-icons/fi";
 
 export default function TechStack() {
-    const frontends = [
-        'HTML', 'CSS', 'Javascript', 'Vue.js', 'React', 'Inertia.js', 'Bootstrap', 'Tailwind CSS', 'SCSS', 'Prettier'
+    const categories = [
+        { label: 'Frontend', skills: ['React', 'Inertia.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'SCSS'] },
+        { label: 'Backend', skills: ['PHP', 'Laravel', 'MySQL', 'Supabase'] }
     ];
 
-    const backends = [
-        'PHP', 'Laravel', 'MySQL'
-    ];
     return (
-        <div className="flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl mb-3 ">
-            <div className="flex items-center gap-1">
-                <FiLayers />
-                <p className="text-lg">Tech Stack</p>
+        <div className="flex flex-col gap-6 bg-white/[0.03] border border-white/5 p-6 rounded-2xl mb-4">
+            <div className="flex items-center gap-2 text-gray-400">
+                <FiLayers size={18} />
+                <h2 className="text-xs font-bold uppercase tracking-[0.2em]">Tech Stack</h2>
             </div>
 
-            <div className="flex flex-col gap-5">
-                <div>
-                    <h1 className="mb-2">Frontend</h1>
-                    <ul className="flex gap-1 font-extralight flex-wrap">
-                        {frontends.map(frontend => (
-                            <li
-                                key={frontend}
-                                className="px-4 py-1 rounded text-sm bg-[#FFFFFF0F]"
-                            >
-                                {frontend}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                
-                <div>
-                    <h1 className="mb-2">Backend</h1>
-                    <ul className="flex gap-1 font-extralight">
-                        {backends.map(backend => (
-                            <li
-                                key={backend}
-                                className="px-4 py-1 rounded text-sm bg-[#FFFFFF0F]"
-                            >
-                                {backend}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {categories.map((cat) => (
+                    <div key={cat.label} className="space-y-3">
+                        <h3 className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">{cat.label}</h3>
+                        <ul className="flex gap-2 flex-wrap">
+                            {cat.skills.map(skill => (
+                                <li key={skill} className="px-3 py-1 rounded-full text-[11px] bg-white/[0.05] border border-white/10 text-gray-300 hover:text-white transition-colors">
+                                    {skill}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
         </div>
     )

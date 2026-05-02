@@ -2,16 +2,17 @@ import { FiBriefcase } from "react-icons/fi";
 
 export default function About() {
     return (
-        <div className="flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl mb-3">
-            <div className="flex items-center gap-1">
-                <FiBriefcase />
-                <p className="text-lg">About</p>
+        <div className="flex flex-col gap-5 bg-white/[0.03] border border-white/5 p-6 rounded-2xl mb-4 shadow-sm">
+            <div className="flex items-center gap-2 text-gray-400">
+                <FiBriefcase size={18} />
+                <h2 className="text-xs font-bold uppercase tracking-[0.2em]">About Me</h2>
             </div>
-            <p className="font-extralight text-sm">I’m a fourth-year IT student specializing in web development.
-            I build modern, minimalist web systems that solve real problems and support business needs.
-            My current stack includes Laravel with Inertia.js, React, and TypeScript.
-            I focus on clean structure, usability, and maintainable code.
-            I’m preparing for my first professional role where I can build practical systems that create real value.</p>
+            <p className="text-gray-300 leading-relaxed text-[15px] font-light italic border-l-2 border-blue-500/30 pl-4">
+                I’m a fourth-year IT student specializing in web development. I build modern, 
+                minimalist web systems that solve real problems. My current stack includes 
+                <span className="text-white font-medium"> Laravel, Inertia.js, and React</span>. 
+                I focus on clean structure and building practical systems that create real value.
+            </p>
         </div>
     )
 }

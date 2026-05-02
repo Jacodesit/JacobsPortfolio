@@ -2,30 +2,30 @@ import { FiAward } from "react-icons/fi";
 
 export default function Experience() {
     const dates = [
-        {year: '2022', headline: 'Hello World!', subtext: 'Wrote my first line of code'},
-        {year: '2025', headline: 'Capstone Leader', subtext: 'Group 1 - CivicWatch (Online Reporting System)'},
-        {year: '2025', headline: 'OJT Internship', subtext: 'DILG Bohol'}
-    ]
+        { year: '2025', headline: 'OJT Internship', subtext: 'DILG Bohol', active: true },
+        { year: '2025', headline: 'Capstone Leader', subtext: 'CivicWatch Project', active: false },
+        { year: '2022', headline: 'Hello World!', subtext: 'First line of code', active: false }
+    ];
+
     return (
-        <div className="w-full flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl lg:w-1/2">
-            <div className="flex items-center gap-1">
-                <FiAward />
-                <p className="text-lg">Experience</p>
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 bg-white/[0.03] border border-white/5 p-6 rounded-2xl">
+            <div className="flex items-center gap-2 text-gray-400">
+                <FiAward size={18} />
+                <h2 className="text-xs font-bold uppercase tracking-[0.2em]">Experience</h2>
             </div>
-            <ul>
-                {dates.map(date => (
-                    <li
-                        key={date.year}
-                        className="flex justify-between gap-5 items-center bg-[#FFFFFF0F] px-3 py-3 rounded mb-2"
-                    >
+            <div className="space-y-3">
+                {dates.map((date, i) => (
+                    <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-all">
                         <div>
-                            <p className="text-sm">{date.headline}</p>
-                            <p className="text-xs text-gray-500">{date.subtext}</p>
+                            <p className="text-sm font-medium text-white">{date.headline}</p>
+                            <p className="text-[11px] text-gray-500">{date.subtext}</p>
                         </div>
-                        <p className="text-xs border px-4 py-1 rounded-xl">{date.year}</p>
-                    </li>
+                        <span className={`text-[10px] px-2 py-1 rounded-md border ${date.active ? 'border-blue-500/50 text-blue-400' : 'border-white/10 text-gray-500'}`}>
+                            {date.year}
+                        </span>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
-    )
+    );
 }

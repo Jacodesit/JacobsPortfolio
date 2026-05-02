@@ -6,41 +6,33 @@ import { MdChevronRight } from "react-icons/md";
 
 export default function Projects() {
     const projects = [
-        {name: 'CivicWatch', description: 'Cabulijan reporting system'},
-        {name: 'LaraReact_TaskManager', description: 'Simple task management application'},
-        {name: 'LaraReact_SimpleBookingSystem', description: 'Simple booking system'}
+        {name: 'CivicWatch', description: 'Cabulijan Reporting System'},
+        {name: 'DILG RSS', description: 'DILG Report Submission System'},
+        {name: 'Ventry', description: 'Anonymous Sharing Platform with AI Listener'},
     ];
 
     return (
-        <main className="w-full flex flex-col gap-4 bg-[#FFFFFF0F] p-5 rounded-xl lg:w-1/2 z-9999">
+        <div className="w-full lg:w-1/2 flex flex-col gap-5 bg-white/[0.03] border border-white/5 p-6 rounded-2xl relative overflow-hidden group">
             <div className="flex justify-between items-center">
-                <div className="flex items-center gap-1">
-                    <FiFolder />
-                    <p className="text-lg">Projects</p>
+                <div className="flex items-center gap-2 text-gray-400">
+                    <FiFolder size={18} />
+                    <h2 className="text-xs font-bold uppercase tracking-[0.2em]">Featured</h2>
                 </div>
-                <Link
-                    to={'/projects'}
-                    className="flex gap-1 items-center text-xs transition-all duration-300 hover:cursor-pointer hover:text-red-500"
-                >
-                    View More
-                    <MdChevronRight />
+                <Link to="/projects" className="text-[10px] uppercase font-bold tracking-widest text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
+                    View All <MdChevronRight size={14} />
                 </Link>
             </div>
-            <ul>
-                {projects.map(project => (
-                    <li
-                        className="text-sm bg-[#1a1a1a] mb-2 p-3 rounded flex gap-3 items-center hover:scale-105 transition-all duration-300 cursor-pointer "
-                    >
-                        <FaCode className="mt-1" />
+            <div className="space-y-3">
+                {projects.map((p, i) => (
+                    <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-black/20 border border-white/5 hover:border-white/20 transition-all cursor-pointer">
+                        <FaCode className="text-gray-500" />
                         <div>
-                            <p className="font-medium flex truncate w-60">{project.name}</p>
-                            <p className="text-xs text-gray-400">
-                                {project.description}
-                            </p>
+                            <p className="text-sm font-medium">{p.name}</p>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-tighter">{p.description}</p>
                         </div>
-                    </li>
+                    </div>
                 ))}
-            </ul>
-        </main>
-    )
+            </div>
+        </div>
+    );
 }

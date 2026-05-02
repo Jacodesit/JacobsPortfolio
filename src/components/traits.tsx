@@ -1,22 +1,18 @@
-import SparkleIcon from "./trait-icon"
+import SparkleIcon from "./trait-icon";
 
 export default function Traits() {
-    const traits = [
-        { name: 'Student', icon: <SparkleIcon /> },
-        { name: 'Builder', icon: <SparkleIcon /> },
-        { name: 'Persistent', icon: <SparkleIcon /> },
-        { name: 'Practical', icon: <SparkleIcon /> },
-        { name: 'Curious', icon: <SparkleIcon /> },
-        { name: 'Disciplined', icon: <SparkleIcon /> },
-        { name: 'Responsible', icon: <SparkleIcon /> }
-    ]
+    const traits = ['Student', 'Builder', 'Persistent', 'Practical', 'Curious', 'Disciplined', 'Responsible'];
 
     return (
-        <aside className="">
-            <ul className="flex flex-wrap gap-1">
+        <aside>
+            <ul className="flex flex-wrap gap-2">
                 {traits.map(trait => (
-                    <li key={trait.name} className="flex gap-1 bg-[#FFFFFF0F] px-3 py-2 text-xs items-center rounded font-lighter">
-                        {trait.icon}{trait.name}
+                    <li 
+                        key={trait} 
+                        className="flex gap-1.5 bg-white/[0.03] border border-white/5 px-3 py-1.5 text-[11px] items-center rounded-full text-gray-300 hover:border-white/20 hover:bg-white/[0.06] transition-colors cursor-default"
+                    >
+                        <SparkleIcon className="text-blue-400/80" />
+                        <span className="font-medium">{trait}</span>
                     </li>
                 ))}
             </ul>

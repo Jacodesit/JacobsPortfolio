@@ -1,82 +1,120 @@
-import BackBtn from "../components/back-btn"
-
-import { FaFolderOpen } from "react-icons/fa";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import BackBtn from "../components/back-btn";
+import { useState } from "react";
+import { FaFolderOpen, FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
+import ProjectsModal from "../components/modal/project-modal";
 
 export default function Projects() {
+    const [openProject, setOpenProject] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
+
     const projects = [
         {
-            link: 'https://github.com/Jacodesit/CivicWatch',
             name: 'CivicWatch', 
-            description: 'This system is a digital platform designed to help residents report non-urgent issues in their barangay. '
+            description: 'A community-driven digital hub for reporting local issues and fostering engagement within the Cabulijan community.',
+            screenshots: Array.from({ length: 18 }, (_, i) => `/Civicwatch/civicwatch-${i + 1}.png`),
+            link: 'https://github.com/Jacodesit/CivicWatch',
+            technologies: ['Laravel', 'Inertia.js', 'Tailwind', 'Python']
         },
         {
-            link: 'https://github.com/Jacodesit/LaraReact_TaskManager',
-            name: 'Task Manager', 
-            description: 'A web-based task management system that lets users create, organize, update, and track tasks with deadlines and status filters for better productivity.'
+            name: 'DILG RSS', 
+            description: 'A streamlined Report Submission System designed to enhance communication between LGUs and the DILG.',
+            screenshots: Array.from({ length: 9 }, (_, i) => `/DilgRss/rss-${i + 1}.png`),
+            link: 'https://github.com/Jacodesit/report-submission-system',
+            technologies: ['Laravel', 'Inertia.js', 'TypeScript', 'MySQL']
         },
         {
-            link: 'https://github.com/Jacodesit/LaraReact_SimpleBookingSystem',
-            name: 'BookEasy', 
-            description: 'A web-based booking system that enables users to create and manage reservations '
+            name: 'Ventry', 
+            description: 'An anonymous AI-powered venting platform for real-time emotional support and non-judgmental listening.',
+            screenshots: Array.from({ length: 10 }, (_, i) => `/Ventry/ventry-${i + 1}.png`),
+            link: 'https://github.com/Jacodesit/Ventry',
+            technologies: ['Grok API', 'Laravel', 'React', 'Tailwind']
         },
-        {
-            link: 'https://github.com/Jacodesit/AuthBookingSystem',
-            name: 'Appointly',
-            description: 'A booking system with user authentication that enforces one active booking per date and maintains organized, rule-based reservations.'
-        },
-        {
-            link: 'https://github.com/Jacodesit/Inventra',
-            name: 'Inventra',
-            description: 'A system that tracks, organizes, and controls stock to ensure the right products are available at the right time.'
-        },
-        {
-            link: 'https://github.com/Jacodesit/LaraReact_CreateNotes',
-            name: 'Notes',
-            description: 'A basic notes application where users can create, view, edit and delete notes'
-        }
-    ]
+    ];
+
+    const handleProjectClick = (project) => {
+        setSelectedProject(project);
+        setOpenProject(true);
+    };
+
     return (
-        <main className="h-screen w-screen bg-black relative text-white">
-            {/* Vercel Grid */}
-                <div
-                className="absolute inset-0 opacity-30"
+        <main className="min-h-screen bg-[#050505] relative text-white selection:bg-blue-500/30 overflow-x-hidden">
+            {/* Background Grid Pattern */}
+            <div
+                className="absolute inset-0 opacity-[0.15] pointer-events-none"
                 style={{
                     backgroundImage: `
-                    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+                        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
                     `,
-                    backgroundSize: "60px 60px",
+                    backgroundSize: "40px 40px",
                 }}
             />
-            {/* Your Content/Components */}
-            <div className="w-full h-screen lg:flex lg:space-x-3 p-5 lg:px-30">
-                <div className="bg-[#FFFFFF0F] p-5 rounded-md w-full h-full overflow-y-auto lg:overflow-hidden">
-                    <div className="flex items-center gap-2 mb-5">
-                        <BackBtn />
-                        <p className="font-semibold text-xl">Projects</p>
+
+            <div className="max-w-7xl mx-auto px-6 py-12 lg:py-24 relative z-10">
+                {/* Header Section */}
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-4">
+                            <BackBtn />
+                            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Projects</h1>
+                        </div>
+                        <p className="text-gray-500 font-medium">A collection of my most impactful digital builds.</p>
                     </div>
-                    <main className="grid grid-rows-1 lg:grid-cols-2 gap-5 rounded ">
-                        {projects.map(project => (
-                            <a 
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="shadow bg-[#FFFFFF0F] rounded p-5 flex flex-col gap-2 transform transition-transform duration-300 hover:-translate-y-1 z-9999" 
-                                key={project.name}
-                            >   
-                                <div className="flex justify-between items-center">
-                                    <FaFolderOpen size={30} />
-                                    <FaExternalLinkAlt size={15} />
+                </div>
+
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            key={project.name}
+                            onClick={() => handleProjectClick(project)}
+                            className="group relative cursor-pointer"
+                        >
+                            <div className="h-full bg-[#FFFFFF05] border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:bg-[#FFFFFF0A] hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/5">
+                                {/* Card Icon & Link */}
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:text-blue-400 transition-colors">
+                                        <FaFolderOpen size={24} />
+                                    </div>
+                                    <div className="text-gray-600 group-hover:text-white transition-colors">
+                                        <FaArrowRight className="-rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                                    </div>
                                 </div>
-                                
-                                <p className="font-medium">{project.name}</p>
-                                <p className="text-xs text-gray-500">{project.description}</p>
-                            </a>
-                        ))}
-                    </main>
+
+                                {/* Content */}
+                                <div className="space-y-3">
+                                    <h3 className="text-xl font-semibold tracking-tight">{project.name}</h3>
+                                    <p className="text-sm text-gray-400 leading-relaxed line-clamp-3">
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                {/* Tech Stack Preview */}
+                                <div className="mt-8 flex flex-wrap gap-2">
+                                    {project.technologies.slice(0, 3).map((tech) => (
+                                        <span key={tech} className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                    {project.technologies.length > 3 && (
+                                        <span className="text-[10px] font-bold text-gray-600">+{project.technologies.length - 3}</span>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
+
+            <ProjectsModal 
+                openModal={openProject} 
+                onClose={() => setOpenProject(false)} 
+                project={selectedProject}
+            />
         </main>
-    )
+    );
 }

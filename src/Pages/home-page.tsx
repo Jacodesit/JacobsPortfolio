@@ -114,63 +114,52 @@ export default function Home() {
             <div className="w-full lg:flex lg:space-x-3 p-5 lg:px-30 z-9999">
                 {/* left */}
                 <motion.section 
-                    className="border mb-5 lg:mb-0 h-auto lg:w-1/4 px-5 py-5.5 left-container rounded-md lg:fixed"
+                    className="border border-white/5 bg-[#0A0A0A]/60 backdrop-blur-xl mb-5 lg:mb-0 h-auto lg:w-1/4 px-6 py-8 rounded-2xl lg:fixed shadow-2xl shadow-black"
                     variants={leftContainerVariants}
                 >
-                    <div className="rounded-full flex flex-col gap-5">
+                    <div className="flex flex-col gap-5">
+                        {/* Profile Section */}
                         <motion.div 
-                            className="pt-5 flex flex-col justify-center items-center"
+                            className="flex flex-col justify-center items-center text-center"
                             variants={profileVariants}
                         >
-                            <motion.img 
-                                src="/Profile/me.webp" 
-                                alt="Me" 
-                                className="rounded-full h-30 mb-5"
-                                whileHover={{ scale: 1.05 }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                            />
-                            <motion.div 
-                                className="flex items-center gap-1"
-                                variants={itemVariants}
-                            >
-                                <p className="font-semibold text-xl mb-1">Paul Jacob Tocmo</p>
-                                <img 
-                                    src='/Flag/ph.png'
-                                    alt="PH Flag" 
+                            <div className="relative mb-6">
+                                <div className="absolute inset-0 bg-blue-500/10 blur-2xl rounded-full" />
+                                <motion.img 
+                                    src="/Profile/me.webp" 
+                                    alt="Me" 
+                                    className="relative rounded-full h-32 w-32 object-cover border-2 border-white/10"
+                                    whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.2)" }}
+                                    transition={{ type: "spring", stiffness: 300 }}
                                 />
+                            </div>
+                            
+                            <motion.div className="flex items-center gap-2 mb-4" variants={itemVariants}>
+                                <p className="font-bold text-2xl tracking-tighter">Paul Jacob Tocmo</p>
+                                <img src='/Flag/ph.png' alt="PH Flag" className="h-4 w-auto grayscale hover:grayscale-0 transition-all" />
                             </motion.div>
-                            <motion.div variants={itemVariants}>
+
+                            <motion.div variants={itemVariants} className="w-full">
                                 <ActionBtn />
                             </motion.div>
                         </motion.div>
                         
-                        <motion.div 
-                            className="border border-gray-800 w-full"
-                            variants={itemVariants}
-                        />
+                        <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent w-full" />
 
                         {/* Traits */}
-                        <motion.div 
-                            className="flex flex-col gap-4"
-                            variants={itemVariants}
-                        >
-                            <div className="flex justify-between items-center">
-                                <div className="flex items-center gap-1">
-                                    <Sparkle />
-                                    <p className="text-lg">Traits</p>
-                                </div>
+                        <motion.div className="flex flex-col gap-4" variants={itemVariants}>
+                            <div className="flex items-center gap-2 text-gray-400">
+                                <Sparkle size={16} />
+                                <p className="text-xs font-bold uppercase tracking-[0.2em]">Personal Traits</p>
                             </div>
                             <Traits />
                         </motion.div>
 
                         {/* Socials */}
-                        <motion.div 
-                            className="flex flex-col gap-4"
-                            variants={itemVariants}
-                        >
-                            <div className="flex items-center gap-1">
-                                <FiShare2 />
-                                <p className="text-lg">Socials</p>
+                        <motion.div className="flex flex-col gap-4" variants={itemVariants}>
+                            <div className="flex items-center gap-2 text-gray-400">
+                                <FiShare2 size={16} />
+                                <p className="text-xs font-bold uppercase tracking-[0.2em]">Connect</p>
                             </div>
                             <Socials />
                         </motion.div>
