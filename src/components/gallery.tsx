@@ -16,7 +16,7 @@ export default function Gallery() {
     };
 
     return (
-        <div className="bg-white-3 border border-white/5 p-6 rounded-2xl mt-4 group relative">
+        <div className="bg-white/3 border border-white/5 p-6 rounded-2xl mt-4 group relative">
             <div className="flex items-center gap-2 text-gray-400 mb-6">
                 <GalleryIcon />
                 <h2 className="text-xs font-bold uppercase tracking-[0.2em]">Moments</h2>

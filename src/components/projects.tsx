@@ -24,7 +24,7 @@ export default function Projects() {
             </div>
             <div className="space-y-3">
                 {projects.map((p, i) => (
-                    <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-black/20 border border-white/5 hover:border-white/20 transition-all cursor-pointer">
+                    <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-white/2 border border-white/5 hover:border-white/20 transition-all cursor-pointer">
                         <FaCode className="text-gray-500" />
                         <div>
                             <p className="text-sm font-medium">{p.name}</p>
