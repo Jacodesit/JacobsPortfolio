@@ -11,6 +11,8 @@ import Experience from "../components/experince";
 import Traits from "../components/traits";
 import Gallery from "../components/gallery";
 import ActionBtn from "../components/action-btn";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 // Animation variants
 const containerVariants: Variants = {
@@ -90,6 +92,8 @@ const gridVariants: Variants = {
 };
 
 export default function Home() {
+    const navigate = useNavigate();
+
     return (
         <motion.main 
             className="min-h-screen w-full bg-black relative text-white z-9999"
@@ -123,15 +127,24 @@ export default function Home() {
                             className="flex flex-col justify-center items-center text-center"
                             variants={profileVariants}
                         >
-                            <div className="relative mb-6">
+                            <div className="relative mb-6 w-full">
+                                <div className="absolute -left-">
+                                    <FaArrowCircleLeft size={20}
+                                        onClick={() => navigate('/')}
+                                        className="cursor-pointer" 
+                                    />
+                                </div>
+                                
                                 <div className="absolute inset-0 bg-blue-500/10 blur-2xl rounded-full" />
-                                <motion.img 
-                                    src="/Profile/me.webp" 
-                                    alt="Me" 
-                                    className="relative rounded-full h-32 w-32 object-cover border-2 border-white/10"
-                                    whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.2)" }}
-                                    transition={{ type: "spring", stiffness: 300 }}
-                                />
+                                <div className="flex justify-center items-center">
+                                    <motion.img 
+                                        src="/Profile/me.webp" 
+                                        alt="Me" 
+                                        className="relative rounded-full h-32 w-32 object-cover border-2 border-white/10 flex justify-center items-center"
+                                        whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.2)" }}
+                                        transition={{ type: "spring", stiffness: 300 }}
+                                    />
+                                </div>
                             </div>
                             
                             <motion.div className="flex items-center gap-2 mb-4" variants={itemVariants}>
@@ -144,7 +157,7 @@ export default function Home() {
                             </motion.div>
                         </motion.div>
                         
-                        <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent w-full" />
+                        <div className="h-px bg-lines-to-r from-transparent via-white/10 to-transparent w-full" />
 
                         {/* Traits */}
                         <motion.div className="flex flex-col gap-4" variants={itemVariants}>

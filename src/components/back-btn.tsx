@@ -7,6 +7,7 @@ export default function BackBtn() {
     return (
         <div className="z-9999" >
             <FaArrowCircleLeft
+                size={20}
                 onClick={() => navigate('/home')}
                 className="cursor-pointer" 
             />
