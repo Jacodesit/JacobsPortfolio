@@ -181,28 +181,30 @@ export default function Home() {
 
                 {/* Right */}
                 <motion.section 
-                    className="border w-full lg:w-3/4 h-auto right-container overflow-hidden lg:ml-98 border-white/5 bg-[#0A0A0A]/60 backdrop-blur-xl"
+                    className="border w-full lg:w-3/4 h-auto right-container overflow-hidden lg:ml-98 border-white/5 bg-[#0A0A0A]/60 backdrop-blur-xl "
                     variants={rightContainerVariants}
                 >
-                    <motion.div variants={itemVariants}>
-                        <About />
-                    </motion.div>
-                    
-                    <motion.div variants={itemVariants}>
-                        <TechStack />
-                    </motion.div>
-                    
-                    <motion.div 
-                        className="flex flex-wrap gap-3 lg:flex-nowrap"
-                        variants={itemVariants}
-                    >
-                        <Experience />
-                        <Projects />
-                    </motion.div>
-                    
-                    <motion.div variants={itemVariants}>
-                        <Gallery />
-                    </motion.div>
+                    <div>
+                        <motion.div variants={itemVariants}>
+                            <About />
+                        </motion.div>
+                        
+                        <motion.div variants={itemVariants}>
+                            <TechStack />
+                        </motion.div>
+                        
+                        <motion.div 
+                            className="flex flex-wrap gap-3 lg:flex-nowrap"
+                            variants={itemVariants}
+                        >
+                            <Experience />
+                            <Projects />
+                        </motion.div>
+                        
+                        <motion.div variants={itemVariants}>
+                            <Gallery />
+                        </motion.div>
+                    </div>
                 </motion.section>
             </div>
         </motion.main>
