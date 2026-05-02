@@ -181,7 +181,7 @@ export default function Home() {
 
                 {/* Right */}
                 <motion.section 
-                    className="border w-full lg:w-3/4 h-auto right-container overflow-hidden lg:ml-98"
+                    className="border w-full lg:w-3/4 h-auto right-container overflow-hidden lg:ml-98 border-white/5 bg-[#0A0A0A]/60 backdrop-blur-xl"
                     variants={rightContainerVariants}
                 >
                     <motion.div variants={itemVariants}>
